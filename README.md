@@ -1,20 +1,30 @@
 faketui
-==============
+=======
 
-Template for a simple Vaadin application that only requires a Servlet 3.0 container to run.
-
+Built from a template for a simple Vaadin application.
+A single @Push annotaion enables websocket push-messages.
+I need them for debugging a websocket application.
 
 Workflow
 ========
+ensure you have 'mvn' in your path (Windows users have to point to _MAVEN_DIR_/bin)
 
-To compile the entire project, run "mvn install".
+from command prompt:
 
-To run the application, run "mvn jetty:run" and open http://localhost:8080/ .
+* git clone <repo-url> _somedir_
+* cd _somedir_
+* mvn jetty:run
+* open http://localhost:8080/ (/?debug for debug console) or do whatever you need
+* Press Ctrl-C in the command prompt window to stop Jetty
 
-To produce a deployable production mode WAR:
-- change productionMode to true in the servlet class configuration (nested in the UI class)
-- run "mvn clean package"
-- test the war file with "mvn jetty:run-war"
+On Windows Java x64 took about 150 MB RAM for running this server.
+On first run Maven will have to download about 115 MB of build/run dependecies.
+
+Minor nuicance: every 5 minutes Jetty will spew
+'java.net.SocketTimeoutException: Timeout on Read' and a stack trace.
+Client window continues working.
+
+From Vaadin template file:
 
 Client-Side compilation
 -------------------------
@@ -44,9 +54,3 @@ When using the runtime compiler, running the application in the "run" mode
 significantly.
 
 It is highly recommended to disable runtime compilation for production WAR files.
-
-Using Vaadin pre-releases
--------------------------
-
-If Vaadin pre-releases are not enabled by default, use the Maven parameter
-"-P vaadin-prerelease" or change the activation default value of the profile in pom.xml .
