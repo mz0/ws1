@@ -11,10 +11,10 @@ ensure you have 'mvn' in your path (Windows users have to point to _MAVEN_DIR_/b
 
 from command prompt:
 
-* git clone <repo-url> _somedir_
+* git clone _repo-url_ _somedir_
 * cd _somedir_
 * mvn jetty:run
-* open http://localhost:8080/ (/?debug for debug console) or do whatever you need
+* open http://localhost:8080 (or /?debug)
 * Press Ctrl-C in the command prompt window to stop Jetty
 
 On Windows Java x64 took about 150 MB RAM for running this server.
